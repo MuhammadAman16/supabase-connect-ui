@@ -124,8 +124,9 @@ export class SupabaseAuth {
   }
 }
 
+// Use import.meta.env instead of process.env for Vite applications
 export const supabaseAuth = new SupabaseAuth({
-  clientId: process.env.SUPABASE_CLIENT_ID || 'YOUR_CLIENT_ID', // Replace with your client ID
+  clientId: import.meta.env.VITE_SUPABASE_CLIENT_ID || 'YOUR_CLIENT_ID', // Replace with your client ID
   redirectUri: `${window.location.origin}/callback`,
   authorizeEndpoint: 'https://api.supabase.com/v1/oauth/authorize',
   tokenEndpoint: 'https://api.supabase.com/v1/oauth/token'
